@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"net/http"
+	"project/lib/database"
 	"strconv"
 
 	"github.com/labstack/echo"
@@ -20,6 +21,5 @@ func DeleteUserController(c echo.Context) error {
 	}
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "Data has been DELETED",
-		"data":    user,
 	})
 }
