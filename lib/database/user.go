@@ -30,3 +30,11 @@ func UpdateUser(id int, user interface{}) (interface{}, error) {
 	}
 	return user, nil
 }
+
+func DeleteUser(id int) (interface{}, error) {
+	var user models.User
+	if err := config.DB.Find(&user, "id=?", id).Delete(&user).Error; err != nil {
+		return nil, err
+	}
+	return user, nil
+}
