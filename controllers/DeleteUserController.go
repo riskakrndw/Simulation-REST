@@ -15,7 +15,7 @@ func DeleteUserController(c echo.Context) error {
 			"message": "ID nya salah BOS!",
 		})
 	}
-	user, err := database.DeleteUser(id)
+	_, err = database.DeleteUser(id)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
