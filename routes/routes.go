@@ -9,7 +9,7 @@ import (
 func New(e *echo.Echo) {
 	//routing
 	e.GET("/users", controllers.GetUsersController)
-	// e.GET("/users/:id", controllers.GetUserController)
+	e.GET("/users/:id", controllers.GetUserController)
 	// e.POST("/users", controllers.CreateUserController)
 	e.DELETE("/users/:id", controllers.DeleteUserController)
 	e.POST("/users", controllers.CreateUserController)
