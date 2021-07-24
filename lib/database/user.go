@@ -38,3 +38,11 @@ func DeleteUser(id int) (interface{}, error) {
 	}
 	return user, nil
 }
+
+func GetUser(id int) (interface{}, error) {
+	var user models.User
+	if err := config.DB.Find(&user, "id=?", id).Error; err != nil {
+		return nil, err
+	}
+	return user, nil
+}

@@ -8,18 +8,20 @@ import (
 	"github.com/labstack/echo"
 )
 
-func DeleteUserController(c echo.Context) error {
+func GetUserController(c echo.Context) error {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]interface{}{
-			"message": "ID nya salah BOS!",
+			"message": "id ngga valid bos!",
 		})
 	}
-	_, err = database.DeleteUser(id)
+	user, err := database.GetUser(id)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 	return c.JSON(http.StatusOK, map[string]interface{}{
-		"message": "Data has been DELETED",
+		"message": "alhamdulillah",
+		"user":    user,
 	})
+
 }
